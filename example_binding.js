@@ -3252,13 +3252,8 @@ if (globalThis?.Deno?.readFile) {
     }
 
 // 
-// postfix hacks
+// postfix
 // 
-    
-// 
-// normal-ish postfix
-// 
-    var initPromise
     var document = typeof window == "object" && window.document && window.document.currentScript ? { currentScript: window.document.currentScript } : null
     export class Parser {
         constructor() {
@@ -3270,7 +3265,6 @@ if (globalThis?.Deno?.readFile) {
         }
 
         static init(moduleOptions) {
-            if (initPromise) return initPromise
             Module = Object.assign({}, Module, moduleOptions)
             
             for (const name of Object.getOwnPropertyNames(ParserImpl.prototype)) {
